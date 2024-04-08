@@ -1,33 +1,31 @@
-import { Spin } from "antd";
+import NProgress from "@/components/NProgress";
 import _ from "lodash";
 import React from "react";
-import { Navigate, useRoutes } from "react-router-dom";
+import { Navigate, RouteObject, useRoutes } from "react-router-dom";
 import routes, { routeType } from "./routes";
 
 export default function Routes() {
-  const element = useRoutes(renderRoutes(routes));
-  return element;
+  return useRoutes(renderRoutes(routes));
 }
 
 function renderRoutes(routes: Array<routeType>) {
   return _.map(routes, (item: routeType) => {
-    interface resType extends routeType {
-      element?: any;
-    }
-
-    let res: resType = { ...item };
-    if (!item?.path) return;
+    let res: RouteObject = { ...item };
 
     // component
     if (item?.component) {
-      const Component = React.lazy(item.component);
-      res.element = (
-        <React.Suspense fallback={<Spin />}>
-          <BeforeEach route={item}>
-            <Component />
-          </BeforeEach>
-        </React.Suspense>
-      );
+      if (item.path === "/") {
+        res.element = item.component;
+      } else {
+        const Component = React.lazy(item.component);
+        res.element = (
+          <React.Suspense fallback={<NProgress />}>
+            <BeforeEach route={item}>
+              <Component />
+            </BeforeEach>
+          </React.Suspense>
+        );
+      }
     }
 
     // children
