@@ -51,6 +51,13 @@ const routes: routeType[] = [
           title: "codeEditor",
         },
       },
+      {
+        path: "*",
+        component: () => import("@/components/NotFound"),
+        meta: {
+          title: "404",
+        },
+      },
     ],
   },
 ];
