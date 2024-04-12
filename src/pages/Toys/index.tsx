@@ -1,6 +1,6 @@
 import { setCounter } from "@/store/modules/user";
 import NiceModal, { useModal } from "@ebay/nice-modal-react";
-import { Button, Drawer, message } from "antd";
+import { App, Button, Drawer } from "antd";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import "./index.less";
@@ -9,6 +9,7 @@ export default function Toys() {
   const [a, setA] = useState(1);
   const dispatch = useDispatch();
   const { counter } = useSelector((store: any) => store.user);
+  const { message } = App.useApp();
   // const ref = useRef(1);
   const getA = () => a;
   const modalHandler = {};
