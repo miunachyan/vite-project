@@ -1,16 +1,23 @@
-import NiceModal, { ModalHolder, useModal } from "@ebay/nice-modal-react";
-import { Button, Drawer } from "antd";
-import { useState } from "react";
+import { setCounter } from "@/store/modules/user";
+import NiceModal, { useModal } from "@ebay/nice-modal-react";
+import { Button, Drawer, message } from "antd";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 // import "./index.less";
 
 export default function Toys() {
   const [a, setA] = useState(1);
+  const dispatch = useDispatch();
+  const { counter } = useSelector((store: any) => store.user);
   // const ref = useRef(1);
   const getA = () => a;
   const modalHandler = {};
+  useEffect(() => {
+    message.info(counter);
+  }, [counter]);
   return (
     <div className="toys">
-      <Button onClick={() => modalHandler.show(M)}>open</Button>
+      <Button onClick={() => dispatch(setCounter({ counter: 2 }))}>open</Button>
       <Button
         onClick={() => {
           setA((p) => p + 1);
@@ -19,7 +26,6 @@ export default function Toys() {
       >
         +
       </Button>
-      <ModalHolder modal={M} a={a} handler={modalHandler} />
     </div>
   );
 }

@@ -30,3 +30,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </Provider>
   </StrictMode>
 );
+
+(async function () {
+  // console.log(111);
+})();
