@@ -10,5 +10,9 @@ export async function getMenuConfig(params = {}): Promise<MenuDataItem[]> {
       path: "/me",
       name: "me",
     },
+    {
+      path: "/toys",
+      name: "toys",
+    },
   ];
 }

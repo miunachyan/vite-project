@@ -1,9 +1,9 @@
 import BasicLayout from "@/layouts/BasicLayout";
 
-export interface routeType {
+export interface RouteType {
   path: string;
   component?: any;
-  children?: Array<routeType>;
+  children?: Array<RouteType>;
   meta?: {
     title?: string;
     needLogin?: boolean;
@@ -11,11 +11,19 @@ export interface routeType {
   redirect?: string;
 }
 
-const routes: routeType[] = [
+const routes: RouteType[] = [
   {
     path: "/",
     component: <BasicLayout />,
+    // redirect: "/home",
     children: [
+      {
+        path: "",
+        component: () => import("@/components/Welcome"),
+        meta: {
+          title: "概览",
+        },
+      },
       {
         path: "/home",
         component: () => import("@/pages/Home"),

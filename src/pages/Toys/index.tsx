@@ -1,8 +1,9 @@
-import { setCounter } from "@/store/modules/user";
-import NiceModal, { useModal } from "@ebay/nice-modal-react";
-import { App, Button, Drawer } from "antd";
+import NiceModal from "@ebay/nice-modal-react";
+import { App, Button } from "antd";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import ADrawer from "./ADrawer";
+import AModal from "./AModal";
 // import "./index.less";
 
 export default function Toys() {
@@ -10,19 +11,18 @@ export default function Toys() {
   const dispatch = useDispatch();
   const { counter } = useSelector((store: any) => store.user);
   const { message } = App.useApp();
-  // const ref = useRef(1);
-  const getA = () => a;
-  const modalHandler = {};
+
   useEffect(() => {
-    message.info(counter);
+    console.log(counter);
   }, [counter]);
+
   return (
     <div className="toys">
-      <Button onClick={() => dispatch(setCounter({ counter: 2 }))}>open</Button>
+      <Button onClick={() => NiceModal.show(ADrawer)}>open drawer</Button>
+      <Button onClick={() => NiceModal.show(AModal)}>open modal</Button>
       <Button
         onClick={() => {
           setA((p) => p + 1);
-          // ref.current = ref.current + 1;
         }}
       >
         +
@@ -30,21 +30,3 @@ export default function Toys() {
     </div>
   );
 }
-
-const M = NiceModal.create(({ a, getA }: any) => {
-  // useEffect(() => {
-  //   console.log(ref.current);
-  // }, [ref]);
-  const modal = useModal();
-  return (
-    <Drawer
-      destroyOnClose
-      getContainer={() => document.querySelector(".toys")!}
-      onClose={modal.hide}
-      open={modal.visible}
-      mask={false}
-    >
-      {a}
-    </Drawer>
-  );
-});

@@ -1,3 +1,4 @@
+import Initial from "@/components/Initial";
 import Routes from "@/router/index";
 import store from "@/store";
 import NiceModal from "@ebay/nice-modal-react";
@@ -7,7 +8,6 @@ import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { HashRouter } from "react-router-dom";
-import Initial from "./components/InitialComponent";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
@@ -24,11 +24,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       >
         <App>
           <NiceModal.Provider>
-            <HashRouter>
-              <Initial>
+            <Initial>
+              <HashRouter>
                 <Routes />
-              </Initial>
-            </HashRouter>
+              </HashRouter>
+            </Initial>
           </NiceModal.Provider>
         </App>
       </ConfigProvider>

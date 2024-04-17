@@ -1,5 +1,4 @@
 import logo from "@/assets/react.svg";
-import Welcome from "@/components/Welcome";
 import { getMenuConfig } from "@/services/menu/menu";
 import { CheckOutlined, GithubOutlined } from "@ant-design/icons";
 import { PageContainer, ProConfigProvider } from "@ant-design/pro-components";
@@ -63,13 +62,15 @@ export default function BasicLayout(props) {
         footerRender={() => defaultFooterDom}
         // rightContentRender={() => <RightContent />}
       >
-        {location.pathname === "/" ? (
+        {/* {location.pathname === "/" ? (
           <Welcome />
-        ) : (
-          <PageContainer>
-            <Outlet />
-          </PageContainer>
-        )}
+        ) : ( */}
+
+        <PageContainer>
+          <Outlet />
+        </PageContainer>
+
+        {/* )} */}
       </ProLayout>
     </ProConfigProvider>
   );

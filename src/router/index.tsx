@@ -2,14 +2,14 @@ import NProgress from "@/components/NProgress";
 import _ from "lodash";
 import React from "react";
 import { Navigate, RouteObject, useRoutes } from "react-router-dom";
-import routes, { routeType } from "./routes";
+import routes, { RouteType } from "./routes";
 
 export default function Routes() {
   return useRoutes(renderRoutes(routes));
 }
 
-function renderRoutes(routes: Array<routeType>) {
-  return _.map(routes, (item: routeType) => {
+function renderRoutes(routes: Array<RouteType>) {
+  return _.map(routes, (item: RouteType) => {
     let res: RouteObject = { ...item };
 
     // component
@@ -42,7 +42,7 @@ function renderRoutes(routes: Array<routeType>) {
   });
 }
 
-function BeforeEach(props: { route: routeType; children: any }) {
+function BeforeEach(props: { route: RouteType; children: any }) {
   if (props?.route?.meta?.title) {
     document.title = props.route.meta.title;
   }

@@ -25,9 +25,9 @@ interface IRequest extends IRequestProps {
   isCancel(value: any): boolean;
 }
 
-const request = async function <T = any>(options): Promise<T> {
+const request = async function <T = any>(options: IRequestConfig): Promise<T> {
   try {
-    const instanceName = options.instanceName ?? "default";
+    const instanceName = options.instanceName || "default";
     const instance = createAxiosInstance()[instanceName];
     if (!(typeof instance === "function")) {
       throw new Error(`unknown ${instanceName} in request method`);
@@ -38,7 +38,6 @@ const request = async function <T = any>(options): Promise<T> {
     }
     return response.data;
   } catch (e) {
-    console.log(e);
     throw e;
   }
 };

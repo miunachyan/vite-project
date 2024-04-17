@@ -5,10 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 export default function Initial({ children }) {
   const dispatch = useDispatch();
   const { count } = useSelector((s: any) => s.user);
-  useMount(() => {
-    console.log(111);
+  useMount(async () => {
+    // console.log(111);
 
     dispatch(setCounter({ counter: Date.now() }));
+
+    // await request.get("https://www.baidu.com");
   });
 
   return <>{children}</>;

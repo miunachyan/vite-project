@@ -1,3 +1,4 @@
+@import url("nprogress/nprogress.css");
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -22,6 +23,17 @@ body {
   place-items: center;
   min-width: 320px;
   height: 100%;
+
+  #nprogress {
+    .bar {
+      background: #39c5bb !important;
+    }
+
+    .spinner-icon {
+      border-left-color: #39c5bb !important;
+      border-top-color: #39c5bb !important;
+    }
+  }
 }
 
 h1 {
