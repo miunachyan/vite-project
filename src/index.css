@@ -13,6 +13,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  .ant-app {
+    height: 100%;
+  }
+
   .ant-pro-layout-mix {
     height: 100%;
   }
@@ -29,9 +33,15 @@ body {
       background: #39c5bb !important;
     }
 
+    .spinner {
+      top: 6px !important;
+      right: 6px !important;
+    }
+
     .spinner-icon {
       border-left-color: #39c5bb !important;
       border-top-color: #39c5bb !important;
+      animation-duration: 600ms;
     }
   }
 }

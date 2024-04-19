@@ -1,25 +1,9 @@
 .basic-layout {
-  min-height: 100vh;
-  &-header {
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-  }
-
-  &-main {
-    padding: 0 50px;
-    margin-top: 64px;
-    min-height: calc(100% - 128px);
-
-    &-container {
-      margin-top: 16px;
-      padding: 24;
-      min-height: calc(100% - 64px);
+  .ant-pro-layout-container {
+    header {
+      .ant-pro-global-header-header-actions-avatar {
+        padding-inline-end: 0;
+      }
     }
-  }
-
-  &-footer {
-    text-align: center;
-    height: 64px;
   }
 }

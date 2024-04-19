@@ -21,7 +21,7 @@ export const user = createSlice({
   // 定义 reducers 并生成关联的操作
   reducers: {
     setCounter(state, { payload }) {
-      state.counter = payload.counter;
+      state.counter = payload;
     },
   },
 });

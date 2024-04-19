@@ -8,7 +8,7 @@ export default function Initial({ children }) {
   useMount(async () => {
     // console.log(111);
 
-    dispatch(setCounter({ counter: Date.now() }));
+    dispatch(setCounter(Date.now()));
 
     // await request.get("https://www.baidu.com");
   });

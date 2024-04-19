@@ -1,6 +1,6 @@
 import NiceModal from "@ebay/nice-modal-react";
 import { App, Button } from "antd";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ADrawer from "./ADrawer";
 import AModal from "./AModal";
@@ -11,10 +11,6 @@ export default function Toys() {
   const dispatch = useDispatch();
   const { counter } = useSelector((store: any) => store.user);
   const { message } = App.useApp();
-
-  useEffect(() => {
-    console.log(counter);
-  }, [counter]);
 
   return (
     <div className="toys">
@@ -27,6 +23,7 @@ export default function Toys() {
       >
         +
       </Button>
+      {a}
     </div>
   );
 }
