@@ -29,6 +29,7 @@ export default function BasicLayout(props) {
 
   const dispatch = useDispatch();
   const { dark } = useSelector((store: any) => store.overall);
+  const { username } = useSelector((store: any) => store.user);
 
   return (
     <ProLayout
@@ -38,7 +39,7 @@ export default function BasicLayout(props) {
       layout="mix"
       title="all-in-one"
       avatarProps={{
-        title: "游客",
+        title: username,
         size: "small",
         icon: <img src="/vite.svg" />,
         render(_avatarProps, defaultDom) {

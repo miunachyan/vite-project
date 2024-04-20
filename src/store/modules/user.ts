@@ -1,13 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export interface UserState {
-  counter: number;
-  title: string;
+  username: string;
 }
 
 const initialState: UserState = {
-  counter: 0,
-  title: "redux toolkit pre",
+  username: "游客",
 };
 
 // 创建一个 Slice
@@ -20,14 +18,14 @@ export const user = createSlice({
 
   // 定义 reducers 并生成关联的操作
   reducers: {
-    setCounter(state, { payload }) {
-      state.counter = payload;
+    setUsername(state, { payload }) {
+      state.username = payload;
     },
   },
 });
 
 // 导出 reducers 方法
-export const { setCounter } = user.actions;
+export const { setUsername } = user.actions;
 
 // 默认导出
 export default user.reducer;
