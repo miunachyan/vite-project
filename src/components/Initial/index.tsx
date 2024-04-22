@@ -1,4 +1,4 @@
-import { setCounter } from "@/store/modules/user";
+import { setUsername } from "@/store/modules/user";
 import { useMount } from "ahooks";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -8,7 +8,7 @@ export default function Initial({ children }) {
   useMount(async () => {
     // console.log(111);
 
-    dispatch(setCounter(Date.now()));
+    dispatch(setUsername(Date.now()));
 
     // await request.get("https://www.baidu.com");
   });
