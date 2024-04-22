@@ -1,14 +1,84 @@
-import { GridContent } from "@ant-design/pro-components";
-import { Card } from "antd";
+import { Avatar, Divider, List, Skeleton } from 'antd';
+import React, { useEffect, useState } from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
-export default function Welcome() {
-  return (
-    // <React.Suspense fallback={<NProgress />}>
-    <GridContent>
-      {Array.from({ length: 20 }, (_, k) => (
-        <Card title={k + 1} key={k} />
-      ))}
-    </GridContent>
-    // </React.Suspense>
-  );
+interface DataType {
+  gender: string;
+  name: {
+    title: string,
+    first: string,
+    last: string,
+  };
+  email: string;
+  picture: {
+    large: string,
+    medium: string,
+    thumbnail: string,
+  };
+  nat: string;
 }
+
+const App: React.FC = () => {
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState<DataType[]>([]);
+
+  const loadMoreData = () => {
+    if (loading) {
+      return;
+    }
+    setLoading(true);
+    fetch(
+      'https://randomuser.me/api/?results=20&inc=name,gender,email,nat,picture&noinfo',
+    )
+      .then((res) => res.json())
+      .then((body) => {
+        setData([...data, ...body.results]);
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    loadMoreData();
+  }, []);
+
+  return (
+    // <div
+    //   id="scrollableDiv"
+    //   style={{
+    //     height: "80vh",
+    //     overflow: "auto",
+    //     padding: "0 16px",
+    //     border: "1px solid rgba(140, 140, 140, 0.35)",
+    //   }}
+    // >
+    <InfiniteScroll
+      dataLength={data.length}
+      next={loadMoreData}
+      hasMore={data.length < 100}
+      loader={<Skeleton avatar paragraph={{ rows: 1 }} active />}
+      endMessage={<Divider plain>It is all, nothing more 🤐</Divider>}
+      // scrollableTarget="scrollableDiv"
+      scrollThreshold={0.9}
+    >
+      <List
+        dataSource={data}
+        renderItem={(item) => (
+          <List.Item key={item.email}>
+            <List.Item.Meta
+              avatar={<Avatar src={item.picture.large} />}
+              title={<a href="https://ant.design">{item.name.last}</a>}
+              description={item.email}
+            />
+            <div>Content</div>
+          </List.Item>
+        )}
+      />
+    </InfiniteScroll>
+    // </div>
+  );
+};
+
+export default App;

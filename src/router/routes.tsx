@@ -46,10 +46,10 @@ const routes: RouteType[] = [
         },
       },
       {
-        path: "/cheeriopc",
-        component: () => import("@/pages/CheerioPC"),
+        path: "/categories",
+        component: () => import("@/pages/Categories"),
         meta: {
-          title: "cheerio",
+          title: "分类",
         },
       },
       {
