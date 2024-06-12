@@ -1,8 +1,8 @@
-import Editor, { EditorProps } from "@monaco-editor/react";
-import * as monaco from "monaco-editor";
-import { MutableRefObject, forwardRef } from "react";
+import Editor, { EditorProps } from '@monaco-editor/react';
+import * as monaco from 'monaco-editor';
+import { MutableRefObject, forwardRef } from 'react';
 
-export default forwardRef((props: EditorProps, ref: MutableRefObject<monaco.editor.IStandaloneCodeEditor> | null) => {
+const RefEditor = (props: EditorProps, ref: MutableRefObject<monaco.editor.IStandaloneCodeEditor> | null) => {
   const { options, ...otherProps } = props;
 
   const handleEditorDidMount = (editor) => {
@@ -19,4 +19,7 @@ export default forwardRef((props: EditorProps, ref: MutableRefObject<monaco.edit
       {...otherProps}
     />
   );
-});
+};
+
+// @ts-expect-error 无影响
+export const MonacoEditor = forwardRef(RefEditor);
