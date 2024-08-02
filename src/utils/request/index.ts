@@ -1,6 +1,6 @@
-import axios, { AxiosRequestConfig, CancelStatic, CancelTokenStatic } from "axios";
-import createAxiosInstance from "./createAxiosInstance";
-import helper from "./helper";
+import axios, { AxiosRequestConfig, CancelStatic, CancelTokenStatic } from 'axios';
+import createAxiosInstance from './createAxiosInstance';
+import helper from './helper';
 
 interface IRequestConfig extends AxiosRequestConfig {
   instanceName?: string;
@@ -27,9 +27,9 @@ interface IRequest extends IRequestProps {
 
 const request = async function <T = any>(options: IRequestConfig): Promise<T> {
   try {
-    const instanceName = options.instanceName || "default";
+    const instanceName = options.instanceName || 'default';
     const instance = createAxiosInstance()[instanceName];
-    if (!(typeof instance === "function")) {
+    if (!(typeof instance === 'function')) {
       throw new Error(`unknown ${instanceName} in request method`);
     }
     const response = await instance(options);
@@ -42,25 +42,25 @@ const request = async function <T = any>(options: IRequestConfig): Promise<T> {
   }
 };
 
-helper.forEach(["delete", "get", "head", "options"], function forEachMethodNoData(method) {
+helper.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
   request[method] = function <T = any>(url, config) {
     return request<T>(
       helper.merge(config || {}, {
         method,
         url,
-      })
+      }),
     );
   };
 });
 
-helper.forEach(["post", "put", "patch"], function forEachMethodWithData(method) {
+helper.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
   request[method] = function <T = any>(url, data, config) {
     return request<T>(
       helper.merge(config || {}, {
         method,
         url,
         data,
-      })
+      }),
     );
   };
 });

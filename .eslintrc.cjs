@@ -14,8 +14,11 @@ module.exports = {
   plugins: ['react-refresh', 'react'],
   rules: {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-    '@typescript-eslint/no-explicit-any': 'off',
     'react/self-closing-comp': ['error'],
+    'react/display-name': 'off',
+    'react/jsx-key': 'off',
+    'react-refresh/only-export-components': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-unused-vars': ['warn'],
   },
 };

@@ -1,4 +1,4 @@
-import { Tabs } from "antd";
+import { Tabs } from 'antd';
 
 export default function CodeEditor() {
   const code = `## Title
@@ -28,8 +28,8 @@ func main() {
 
   const items = [
     {
-      key: "1",
-      label: "CodeMirror",
+      key: '1',
+      label: 'CodeMirror',
       // children: (
       //   // <ReactCodeMirror value={code} extensions={[markdown({ base: markdownLanguage, codeLanguages: languages })]} />
       // ),

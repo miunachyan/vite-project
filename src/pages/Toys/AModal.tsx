@@ -1,5 +1,5 @@
-import NiceModal, { useModal } from "@ebay/nice-modal-react";
-import { Modal } from "antd";
+import NiceModal, { useModal } from '@ebay/nice-modal-react';
+import { Modal } from 'antd';
 
 export default NiceModal.create(({ a }: any) => {
   const modal = useModal();

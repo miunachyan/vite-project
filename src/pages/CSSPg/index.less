@@ -1,0 +1,41 @@
+.csspg-main {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+
+  .container {
+    position: relative;
+    height: 128px;
+    width: 96px;
+    border: 1px solid #d8d8d8;
+    border-radius: 8px;
+
+    .corner {
+      text-align: right;
+      margin: 4px;
+    }
+
+    .mask {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      transition: opacity 0.3s;
+      // transition: transform 0.5s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      // transform: scale(1.2, 1.2);
+
+      &:hover {
+        opacity: 1;
+        // transform: scale(1, 1);
+      }
+    }
+  }
+}

@@ -17,6 +17,10 @@ async function getMenuConfig(params = {}): Promise<MenuDataItem[]> {
       name: 'toys',
     },
     {
+      path: '/csspg',
+      name: 'csspg',
+    },
+    {
       path: '/settings',
       name: '设置',
       icon: <SettingOutlined />,

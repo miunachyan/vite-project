@@ -1,4 +1,4 @@
-import BasicLayout from "@/layouts/BasicLayout";
+import BasicLayout from '@/layouts/BasicLayout';
 
 export interface RouteType {
   path: string;
@@ -13,57 +13,64 @@ export interface RouteType {
 
 const routes: RouteType[] = [
   {
-    path: "/",
+    path: '/',
     component: <BasicLayout />,
     // redirect: "/home",
     children: [
       {
-        path: "",
-        component: () => import("@/components/Welcome"),
+        path: '',
+        component: () => import('@/components/Welcome'),
         meta: {
-          title: "概览",
+          title: '概览',
         },
       },
       {
-        path: "/home",
-        component: () => import("@/pages/Home"),
+        path: '/home',
+        component: () => import('@/pages/Home'),
         meta: {
-          title: "首页",
+          title: '首页',
         },
       },
       {
-        path: "/me",
-        component: () => import("@/pages/Me"),
+        path: '/me',
+        component: () => import('@/pages/Me'),
         meta: {
-          title: "我的",
+          title: '我的',
         },
       },
       {
-        path: "/toys",
-        component: () => import("@/pages/Toys"),
+        path: '/toys',
+        component: () => import('@/pages/Toys'),
         meta: {
-          title: "测试页",
+          title: '表单表格',
         },
       },
       {
-        path: "/categories",
-        component: () => import("@/pages/Categories"),
+        path: '/csspg',
+        component: () => import('@/pages/CSSPg'),
         meta: {
-          title: "分类",
+          title: 'csspg',
         },
       },
       {
-        path: "/codeEditor",
-        component: () => import("@/pages/CodeEditor"),
+        path: '/categories',
+        component: () => import('@/pages/Categories'),
         meta: {
-          title: "codeEditor",
+          title: '分类',
         },
       },
       {
-        path: "*",
-        component: () => import("@/components/NotFound"),
+        path: '/codeEditor',
+        component: () => import('@/pages/CodeEditor'),
         meta: {
-          title: "404",
+          title: 'codeEditor',
+        },
+      },
+      {
+        path: '*',
+        component: () => import('@/components/NotFound'),
+        meta: {
+          title: '404',
         },
       },
     ],

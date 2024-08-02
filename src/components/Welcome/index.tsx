@@ -5,15 +5,15 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 interface DataType {
   gender: string;
   name: {
-    title: string,
-    first: string,
-    last: string,
+    title: string;
+    first: string;
+    last: string;
   };
   email: string;
   picture: {
-    large: string,
-    medium: string,
-    thumbnail: string,
+    large: string;
+    medium: string;
+    thumbnail: string;
   };
   nat: string;
 }
@@ -27,9 +27,7 @@ const App: React.FC = () => {
       return;
     }
     setLoading(true);
-    fetch(
-      'https://randomuser.me/api/?results=20&inc=name,gender,email,nat,picture&noinfo',
-    )
+    fetch('https://randomuser.me/api/?results=20&inc=name,gender,email,nat,picture&noinfo')
       .then((res) => res.json())
       .then((body) => {
         setData([...data, ...body.results]);

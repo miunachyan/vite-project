@@ -1,11 +1,11 @@
 const toString = Object.prototype.toString;
 
 function isArray(v) {
-  return toString.call(v) === "[object Array]";
+  return toString.call(v) === '[object Array]';
 }
 
 function isPlainObject(v) {
-  if (toString.call(v) !== "[object Object]") {
+  if (toString.call(v) !== '[object Object]') {
     return false;
   }
   const prototype = Object.getPrototypeOf(v);
@@ -13,10 +13,10 @@ function isPlainObject(v) {
 }
 
 function forEach(o, f) {
-  if (o === null || typeof o === "undefined") {
+  if (o === null || typeof o === 'undefined') {
     return;
   }
-  if (typeof o !== "object") {
+  if (typeof o !== 'object') {
     o = [o];
   }
   if (isArray(o)) {
