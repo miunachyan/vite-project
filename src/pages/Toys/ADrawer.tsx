@@ -1,5 +1,5 @@
-import NiceModal, { useModal } from "@ebay/nice-modal-react";
-import { Drawer } from "antd";
+import NiceModal, { useModal } from '@ebay/nice-modal-react';
+import { Drawer } from 'antd';
 
 export default NiceModal.create(({ a }: any) => {
   // useEffect(() => {
@@ -9,7 +9,7 @@ export default NiceModal.create(({ a }: any) => {
   return (
     <Drawer
       destroyOnClose
-      getContainer={() => document.querySelector(".toys")!}
+      getContainer={() => document.querySelector('.toys')!}
       onClose={modal.hide}
       open={modal.visible}
       mask={false}

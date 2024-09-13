@@ -13,7 +13,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh', 'react'],
   rules: {
-    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    // 'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'react/self-closing-comp': ['error'],
     'react/display-name': 'off',
     'react/jsx-key': 'off',

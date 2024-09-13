@@ -1,17 +1,17 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 export interface UserState {
   username: string;
 }
 
 const initialState: UserState = {
-  username: "游客",
+  username: '游客',
 };
 
 // 创建一个 Slice
 export const user = createSlice({
   // 命名空间
-  name: "user",
+  name: 'user',
 
   // 初始化状态值
   initialState,

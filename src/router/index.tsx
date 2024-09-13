@@ -1,8 +1,8 @@
-import NProgress from "@/components/NProgress";
-import _ from "lodash";
-import React from "react";
-import { Navigate, RouteObject, useRoutes } from "react-router-dom";
-import routes, { RouteType } from "./routes";
+import NProgress from '@/components/NProgress';
+import _ from 'lodash';
+import React from 'react';
+import { Navigate, RouteObject, useRoutes } from 'react-router-dom';
+import routes, { RouteType } from './routes';
 
 export default function Routes() {
   return useRoutes(renderRoutes(routes));
@@ -10,11 +10,11 @@ export default function Routes() {
 
 function renderRoutes(routes: Array<RouteType>) {
   return _.map(routes, (item: RouteType) => {
-    let res: RouteObject = { ...item };
+    const res: RouteObject = { ...item };
 
     // component
     if (item?.component) {
-      if (item.path === "/") {
+      if (item.path === '/') {
         res.element = item.component;
       } else {
         const Component = React.lazy(item.component);
@@ -53,5 +53,5 @@ function BeforeEach(props: { route: RouteType; children: any }) {
     // navigate('/login');
   }
 
-  return <div style={{ height: "100%" }}>{props.children}</div>;
+  return <div style={{ height: '100%' }}>{props.children}</div>;
 }

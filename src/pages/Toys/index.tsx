@@ -1,9 +1,9 @@
-import NiceModal from "@ebay/nice-modal-react";
-import { App, Button } from "antd";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import ADrawer from "./ADrawer";
-import AModal from "./AModal";
+import NiceModal from '@ebay/nice-modal-react';
+import { App, Button } from 'antd';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import ADrawer from './ADrawer';
+import AModal from './AModal';
 // import "./index.less";
 
 export default function Toys() {
