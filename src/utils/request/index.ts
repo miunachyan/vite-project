@@ -26,20 +26,20 @@ interface IRequest extends IRequestProps {
 }
 
 const request = async function <T = any>(options: IRequestConfig): Promise<T> {
-  try {
-    const instanceName = options.instanceName || 'default';
-    const instance = createAxiosInstance()[instanceName];
-    if (!(typeof instance === 'function')) {
-      throw new Error(`unknown ${instanceName} in request method`);
-    }
-    const response = await instance(options);
-    if (instance.defaults.withFullResponse || options.withFullResponse) {
-      return response;
-    }
-    return response.data;
-  } catch (e) {
-    throw e;
+  // try {
+  const instanceName = options.instanceName || 'default';
+  const instance = createAxiosInstance()[instanceName];
+  if (!(typeof instance === 'function')) {
+    throw new Error(`unknown ${instanceName} in request method`);
   }
+  const response = await instance(options);
+  if (instance.defaults.withFullResponse || options.withFullResponse) {
+    return response;
+  }
+  return response.data;
+  // } catch (e) {
+  // throw e;
+  // }
 };
 
 helper.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {

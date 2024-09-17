@@ -1,6 +1,6 @@
-import { setUsername } from "@/store/modules/user";
-import { useMount } from "ahooks";
-import { useDispatch, useSelector } from "react-redux";
+import { setUsername } from '@/store/modules/user';
+import { useMount } from 'ahooks';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function Initial({ children }) {
   const dispatch = useDispatch();
